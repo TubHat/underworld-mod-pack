@@ -1,0 +1,25 @@
+{
+    "type": "origins:multiple",
+    "name": "EMP burst",
+    "description": "Press ability key to stun and nauseate nearby entities, stopping their momentum. Kill a player to recharge emp burst.",
+    "power": {
+        "type": "origins:active_self",
+        "key": "key.origins.ternary_active",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ju:emp"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "ju:emp_meter",
+            "compare_to": 1,
+            "comparison": "=="
+        }
+    },
+    "meter": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1
+    }
+}

@@ -51,12 +51,27 @@
             "type": "origins:if_else_list",
             "actions": [
                 {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:health",
+                                "compare_to": 30,
+                                "comparison": "<"
+                            },
+                            {
+                                "type": "origins:health",
+                                "compare_to": 15,
+                                "comparison": ">="
+                            }
+                        ]
+                    },
                     "action": {
                         "type": "origins:and",
                         "actions": [
                             {
                                 "type": "origins:apply_effect",
-                                "effect":  {
+                                "effect": {
                                     "effect": "minecraft:regeneration",
                                     "amplifier": 1,
                                     "duration": 50,
@@ -65,7 +80,46 @@
                             },
                             {
                                 "type": "origins:play_sound",
-                                "sound": "minecraft:sparks"
+                                "sound": "minecraft:item.armor.equip_chain",
+                                "volume": 0.3,
+                                "pitch": 1.5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:health",
+                                "compare_to": 15,
+                                "comparison": "<"
+                            },
+                            {
+                                "type": "origins:health",
+                                "compare_to": 1,
+                                "comparison": ">="
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "effect": "minecraft:regeneration",
+                                    "amplifier": 2,
+                                    "duration": 50,
+                                    "show_particles": false
+                                }
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "minecraft:item.armor.equip_netherite",
+                                "volume": 0.3,
+                                "pitch": 1.5
                             }
                         ]
                     }
